@@ -1,0 +1,12 @@
+h1 {
+   font-size:50px;        
+   font-family:sans-serif;
+   margin-top:10px;
+   background-color: lightblue;
+   color: white;
+}
+
+body {
+  color: black;
+  background-color: pink;
+}

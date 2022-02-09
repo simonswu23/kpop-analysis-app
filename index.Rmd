@@ -1,0 +1,86 @@
+---
+title: "Kpop Report"
+author: "Jason Liu, Dillon Tsien, Simon Wu, Ken Huang"
+date: "11/21/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("chart1.R")
+source("chart2.R")
+source("chart3.R")
+source("table.R")
+source("values.R")
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# Introduction
+We found K-Pop to be a good topic because it’s a media data landscape that is rife with 
+layers of racialization and gender. We thought it would be particularly interesting to 
+compare the global data trends of K-Pop, especially being situated in a very Western data 
+context at UW. Finally, we all found a racial connection to the topic; living in the 
+diaspora of Asian-America, understanding the reach of a very much Asian 
+(without American)-based phenomenon in the US produces layers of personal significance 
+and self-reflexivity in understanding and re-articulating the “Asian-ness” that we’ve 
+been dispossessed of.
+
+We will be using the "K-Pop Hits Through The Years" dataset which contains hit/top
+songs in K-Pop from the 90s to the latest year using Apple Music and Spotify. Each
+song contains information such as its danceability, energy, loudness, and more.
+The dataset was obtained from [here](https://www.kaggle.com/sberj127/kpop-hits-through-the-years?select=KPopHits2000.csv).
+
+# Summary
+We wanted to analyze the trend of the popularity of K-Pop throughout the years. One way 
+we could model this is through looking at specific variables that contribute to popularity 
+(danceability, energy, loudness, speechiness, acousticness). For our summary values, we 
+thus found the years where the means of each of these variables across the songs released 
+that year were the highest:
+
+- Danceability: `r summary_info$max_danceability`
+- Energy: `r summary_info$max_energy`
+- Loudness: `r summary_info$max_loudness`
+- Speechiness: `r summary_info$max_speechiness`
+- Acousticness: `r summary_info$max_acousticness`
+
+# Table
+The table displays the overall means of the five variables, grouped by year. We chose these 
+specific values because they all have intuitive positive correlations with popularity, and 
+seem more fundamental components to the songs over things like key (which is hard to correlate 
+numerically), duration, time signature, etc.)
+```{r echo = F}
+knitr::kable(agg_table)
+```
+
+# Chart 1
+```{r echo = F}
+plot1
+```
+
+This is a line chart for the danceability of the top hits from 1990 to 2020. The data is aggregated to the year level
+and shows an overall increase to the danceability of top Kpop hits as well as a few dips between 2010 and 2020. The
+purpose of the graph is to demonstrate a correlation between danceability and time, which is a good indicator of Kpop
+songs and their relative popularity and its change over time. Although there are many other features in the Kpop data
+set that can be displayed over time such as energy or loudness, the scale is not the same and the resulting graph may
+be misleading. In the graph we can also see that the minimum is around 2005 while the maximum is around 2019. 
+
+# Chart 2
+```{r echo = F}
+danceability_energy_plot
+```
+
+This chart is intended to show the relationship between a songs energy and its danceability (mean value of all the
+songs for each year). The purpose of this chart is to understand the relationships between two variables of energy 
+and danceability and to notice any dense areas in the scatterplot that would correlate to an optimal level of
+danceability and energy. Based on the chart, there is a moderate positive correlation between song energy and
+danceability. Moreover, newer released songs tend to have a higher song energy and danceability
+value/score than older songs.
+
+# Chart 3
+```{r echo = F}
+boys_chart
+girls_chart
+```
+
+These are histograms that show the number of boy and girl groups that debuted in each year. The purpose of this chart
+is to show the relative success of the kpop industry through how many groups make their debut. In both boy and
+girl groups, there seems to be a trend in which the popularity of kpop is steadily growing as the years go on.
