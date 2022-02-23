@@ -1,4 +1,4 @@
-Find the webpage [here](https://simonswu23.github.io/kpop-analysis-app/) and the app [here](https://vegatarianspam23.shinyapps.io/final-project-kenhuanguw/)
+Find the webpage [here](https://simonswu23.github.io/kpop-analysis-app/) and the interactive app [here](https://vegatarianspam23.shinyapps.io/final-project-kenhuanguw/)
 
 **Where did you download the data (e.g., a web URL)?**
 - [K-Pop Hits Through The Years](https://www.kaggle.com/sberj127/kpop-hits-through-the-years?select=KPopHits2000.csv)
